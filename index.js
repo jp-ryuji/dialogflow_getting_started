@@ -14,9 +14,10 @@
 'use strict';
 
 const http = require('http');
+const rcloadenv = require('@google-cloud/rcloadenv');
 
 const host = 'api.worldweatheronline.com';
-const wwoApiKey = '';
+const wwoApiKey = rcloadenv.getAndApply('myWeather', {}).WWO_API_KEY;
 
 exports.dialogflowWeatherWebhook = (req, res) => {
   // Get the city and date from the request
